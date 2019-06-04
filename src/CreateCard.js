@@ -1,5 +1,6 @@
 import React from "react"
 import {Form,Card} from "semantic-ui-react"
+import { from } from "rxjs";
 
 class CreateCard extends React.Component{
 
@@ -16,29 +17,31 @@ class CreateCard extends React.Component{
   }
   render(){
     return(
-      <Card display="flex">
+      <Card>
+          
 
+        <Card.Content textAlign="center" header= "Write a Query"/>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group widths ='equal'>
-            <Form.Input
+        <Form.Input 
+        fluid
+        placeholder = "Question"
+        name = "front"
+        value = {this.state.front}
+        onChange = {this.handleChange} />
+        <Card.Content textAlign="center" header= "Write an Answer"/>
+         <Form.Input
             fluid
-            label = "Question"
-            placeholder = "Question"
-            name = "front"
-            value = {this.state.front}
-            onChange = {this.handleChange}
-            />
-
-            <Form.Input
-            fluid
-            label = "Answer"
             placeholder = "Answer"
             name = "back"
             value = {this.state.back}
             onChange = {this.handleChange}
             />
+
+          <Card.Content textAlign='center' extra>
+
             <Form.Button primary>Create</Form.Button>
-          </Form.Group>
+          </Card.Content>
+
         </Form>
       </Card>
     )
