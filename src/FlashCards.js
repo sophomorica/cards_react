@@ -1,15 +1,13 @@
 import React from "react"; //giving access to JSX
 //import Card from "./Card"
 import { Card, Grid,Header} from "semantic-ui-react"
+import FlashCard from "./FlashCard"
 
 const FlashCards = ({cards}) =>(
 
   <Card.Group itemsPerRow={4} >
-    { cards.map(card =>(
-      <Card>
-        <Card.Content textAlign='center' header ="Question"/>
-        <Card.Content textAlign='center' description={card.front}/>
-      </Card>
+    { cards.map(flash_card =>(
+      <FlashCard key={flash_card.id} {...flash_card}/>
         )
         )}
         </Card.Group>
