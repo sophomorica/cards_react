@@ -9,6 +9,7 @@ class App extends React.Component{
       {id:1, front: "What is my name", back: "Jerry",},
       {id:2, front: "How fast is a cheetah", back: "Very Fast",},
       {id:3, front: "Where is the moon", back: "In space, next to the earth"},
+      {id:4, front: "How do you like your eggs", back: "Scrambled"},
     ],
 
   }
