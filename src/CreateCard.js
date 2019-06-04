@@ -16,10 +16,10 @@ class CreateCard extends React.Component{
   }
   render(){
     return(
-      <Card>
+      <Card display="flex">
 
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group widths ="equal">
+          <Form.Group widths ='equal'>
             <Form.Input
             fluid
             label = "Question"

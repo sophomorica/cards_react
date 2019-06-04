@@ -44,13 +44,13 @@ class App extends React.Component{
         </Header>
         <Header as="h1" textAlign='center'>
           Flash Cards</Header>
+          <CreateCard add = {this.addCard}/>
           <Divider/>
           <FlashCards 
           cards={this.state.flashCards} 
           revealAnswer={this.toggleAnswer}
           remove = {this.removeCard}
           />
-        <CreateCard add = {this.addCard}/>
       </Container>
     )
   }
