@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Button, Header, Icon, Divider } from "semantic-ui-react"
 import FlashCards from "./FlashCards"
+import CreateCard from "./CreateCard"
 
 class App extends React.Component{
   state = {
@@ -12,9 +13,22 @@ class App extends React.Component{
 
   }
   getId = () => {
-    return Math.floor((1+ Math.randome())*1000)
+    return Math.floor((1+ Math.random())*1000)
   }
-  toggleAnswer = (id) => this.setState({flashCards: !this.state.showBack})
+  addCard = (cardData) =>{
+    let card = { id: this.getId(),...cardData, }
+    this.setState({flashCards: [...this.state.flashCards, card]})
+  }
+  toggleAnswer = (id) => {
+    this.state.flashCards.filter(card =>{
+      if (card.id == id){
+       
+        card.showBack = !card.showBack
+        
+      }
+      
+    })
+  }
   removeCard = (id) =>{
     const flashCards = this.state.flashCards.filter(card => {
       if (card.id !== id)
@@ -24,7 +38,7 @@ class App extends React.Component{
   }
   render(){
     return (
-      <Container>
+      <Container style  = {{paddingTop: "25px"}}>
         <Header as="h1" textAlign='center'>
           <Icon name= "book" color = "blue" circular/>
         </Header>
@@ -36,7 +50,7 @@ class App extends React.Component{
           revealAnswer={this.toggleAnswer}
           remove = {this.removeCard}
           />
-       
+        <CreateCard add = {this.addCard}/>
       </Container>
     )
   }
