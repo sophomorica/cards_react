@@ -6,9 +6,9 @@ import CreateCard from "./CreateCard"
 class App extends React.Component{
   state = {
     flashCards: [
-      {id:1, front: "What is my name", back: "Jerry", showBack: false},
-      {id:2, front: "How fast is a cheetah", back: "Very Fast", showBack: false},
-      {id:3, front: "Where is the moon", back: "In space, next to the earth", showBack: true},
+      {id:1, front: "What is my name", back: "Jerry",},
+      {id:2, front: "How fast is a cheetah", back: "Very Fast",},
+      {id:3, front: "Where is the moon", back: "In space, next to the earth"},
     ],
 
   }
@@ -16,7 +16,7 @@ class App extends React.Component{
     return Math.floor((1+ Math.random())*1000)
   }
   addCard = (cardData) =>{
-    let card = { id: this.getId(),...cardData, }
+    let card = { id: this.getId(), ...cardData, }
     this.setState({flashCards: [...this.state.flashCards, card]})
   }
   toggleAnswer = (id) => {

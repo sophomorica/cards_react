@@ -3,7 +3,7 @@ import {Form,Card} from "semantic-ui-react"
 
 class CreateCard extends React.Component{
 
-  state = {question: "", answer: "",}
+  state = {front: "", back: "",}
 
   handleChange = (e) => {
     this.setState({[e.target.name]: [e.target.value]})
@@ -11,11 +11,13 @@ class CreateCard extends React.Component{
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.add(this.state)
+    //this.props.add(showBack: false)
     this.setState({front:"", back:""})
   }
   render(){
     return(
       <Card>
+
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths ="equal">
             <Form.Input
@@ -26,6 +28,7 @@ class CreateCard extends React.Component{
             value = {this.state.front}
             onChange = {this.handleChange}
             />
+
             <Form.Input
             fluid
             label = "Answer"
