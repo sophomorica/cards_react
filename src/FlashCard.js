@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, Divider, Card, Icon,Container} from "semantic-ui-react"
+import { Button, Card, Icon,Container} from "semantic-ui-react"
 
 class FlashCard extends React.Component{
   state = {showBack: false}
@@ -14,8 +14,8 @@ class FlashCard extends React.Component{
 <Container textAlign='center'>
 
 </Container>
-      {this.state.showBack ?  
-  <Card.Content textAlign='center' header={this.props.back}/> : <Card.Content textAlign="center" header="?"/>}
+  {this.state.showBack ?  <Card.Content textAlign='center' header={this.props.back}/>
+   : <Card.Content textAlign="center" header="?"/>}
 
 <Card.Content extra>
 
