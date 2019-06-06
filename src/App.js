@@ -8,15 +8,17 @@ import NoMatch from "./components/NoMatch"
 import FlashCardSite from "./components/FlashCardSite"
 import Home from "./components/Static_Pages/Home"
 import About from "./components/Static_Pages/About"
+import Games from "./components/games/Rps"
 
 const App = () => (
   <>
     <Navbar/>
     <Container>
       <Switch>
+        <Route path = "RPS" component = {Games}/>
         <Route exact path= "/" component={FlashCardSite}/>
-        <Route exact path= "/home" component={Home}/>
-        <Route exact path= "/about" component={About}/>
+        <Route  path= "/home" component={Home}/>
+        <Route  path= "/about" component={About}/>
         <Route component={NoMatch}/>
       </Switch>
     </Container>
