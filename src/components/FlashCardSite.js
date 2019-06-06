@@ -19,8 +19,7 @@ class FlashCardSite extends React.Component{
   editCard = (cardData) =>{
     const flashCards = this.state.flashCards.map(card =>{
       if(card.id === cardData.id)
-      return cardData;
-      debugger
+        return cardData;
       return card
     })
     this.setState({flashCards,})
@@ -44,7 +43,6 @@ class FlashCardSite extends React.Component{
       key={card.id} 
       {...card} 
       revealAnswer={this.toggleAnswer}
-      render = {this.renderCards}
       remove = {this.removeCard}
       edit= {this.editCard}
       />)

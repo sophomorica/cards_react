@@ -6,10 +6,8 @@ class FlashCard extends React.Component {
   state = { showBack: false, editing: false };
 
   toggleCard = () => this.setState({ showBack: !this.state.showBack });
-  toggleEdit = () => {
-    this.setState({ editing: !this.state.editing });
-  };
-
+  toggleEdit = () => this.setState({ editing: !this.state.editing });
+  
   render() {
     return (
       <Segment>

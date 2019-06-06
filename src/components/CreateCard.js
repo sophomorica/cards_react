@@ -19,8 +19,8 @@ class CreateCard extends React.Component{
     this.setState({front:"", back:""})
   }
   componentDidMount(){
-    const {question, answer, id} = this.props
-    id && this.setState({question, answer})
+    const {front, back, id} = this.props
+    id && this.setState({front, back})
   }
   render(){
     return(
