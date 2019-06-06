@@ -1,6 +1,5 @@
 import React from "react"
 import {Form,Card} from "semantic-ui-react"
-import { from } from "rxjs";
 
 class CreateCard extends React.Component{
 
@@ -11,15 +10,21 @@ class CreateCard extends React.Component{
   }
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.add(this.state)
-    //this.props.add(showBack: false)
+    if(this.props.id){
+      this.props.edit({id: this.props.id, ...this.state})
+      this.props.toggleEdit()
+    }else{
+      this.props.add(this.state)
+    }
     this.setState({front:"", back:""})
+  }
+  componentDidMount(){
+    const {question, answer, id} = this.props
+    id && this.setState({question, answer})
   }
   render(){
     return(
       <Card>
-          
-
         <Card.Content textAlign="center" header= "Write a Query"/>
         <Form onSubmit={this.handleSubmit}>
         <Form.Input 
@@ -36,12 +41,9 @@ class CreateCard extends React.Component{
             value = {this.state.back}
             onChange = {this.handleChange}
             />
-
           <Card.Content textAlign='center' extra>
-
             <Form.Button primary>Create</Form.Button>
           </Card.Content>
-
         </Form>
       </Card>
     )

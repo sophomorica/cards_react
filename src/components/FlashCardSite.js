@@ -16,13 +16,22 @@ class FlashCardSite extends React.Component{
   getId = () => {
     return Math.floor((1+ Math.random())*1000)
   }
+  editCard = (cardData) =>{
+    const flashCards = this.state.flashCards.map(card =>{
+      if(card.id === cardData.id)
+      return cardData;
+      debugger
+      return card
+    })
+    this.setState({flashCards,})
+  }
   addCard = (cardData) =>{
     let card = { id: this.getId(), ...cardData, }
     this.setState({flashCards: [...this.state.flashCards, card]})
   }
   toggleAnswer = (id) => {
     this.state.flashCards.filter(card =>{
-      if (card.id == id){
+      if (card.id === id){
         card.showBack = !card.showBack
       }
     })
@@ -30,11 +39,14 @@ class FlashCardSite extends React.Component{
 
   renderCards = () =>{
     const {flashCards } = this.state
-    return flashCards.map(card => <FlashCard key={card.id} 
+    return flashCards.map(card =>
+      <FlashCard 
+      key={card.id} 
       {...card} 
       revealAnswer={this.toggleAnswer}
       render = {this.renderCards}
       remove = {this.removeCard}
+      edit= {this.editCard}
       />)
   }
   removeCard = (id) =>{
