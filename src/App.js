@@ -6,6 +6,8 @@ import CreateCard from "./components/CreateCard"
 import Navbar from "./components/Navbar"
 import NoMatch from "./components/NoMatch"
 import FlashCardSite from "./components/FlashCardSite"
+import Home from "./components/Static_Pages/Home"
+import About from "./components/Static_Pages/About"
 
 const App = () => (
   <>
@@ -13,6 +15,8 @@ const App = () => (
     <Container>
       <Switch>
         <Route exact path= "/" component={FlashCardSite}/>
+        <Route exact path= "/home" component={Home}/>
+        <Route exact path= "/about" component={About}/>
         <Route component={NoMatch}/>
       </Switch>
     </Container>

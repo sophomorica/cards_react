@@ -9,6 +9,16 @@ const Navbar = () =>(
         Flash Cards
       </Menu.Item>
     </Link>
+    <Link to="/home">
+      <Menu.Item>
+        Home
+      </Menu.Item>
+    </Link>
+    <Link to="/about">
+      <Menu.Item>
+        About
+      </Menu.Item>
+    </Link>
 
   </Menu>
 )
