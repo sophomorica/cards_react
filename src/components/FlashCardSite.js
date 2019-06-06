@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Button, Header, Icon, Divider } from "semantic-ui-react"
-import FlashCards from "./FlashCards"
+import { Container, Card, Header, Icon, Divider } from "semantic-ui-react"
+import FlashCard from "./FlashCard"
 import CreateCard from "./CreateCard"
 
 class FlashCardSite extends React.Component{
@@ -23,12 +23,19 @@ class FlashCardSite extends React.Component{
   toggleAnswer = (id) => {
     this.state.flashCards.filter(card =>{
       if (card.id == id){
-       
         card.showBack = !card.showBack
-        
       }
-      
     })
+  }
+
+  renderCards = () =>{
+    const {flashCards } = this.state
+    return flashCards.map(card => <FlashCard key={card.id} 
+      {...card} 
+      revealAnswer={this.toggleAnswer}
+      render = {this.renderCards}
+      remove = {this.removeCard}
+      />)
   }
   removeCard = (id) =>{
     const flashCards = this.state.flashCards.filter(card => {
@@ -46,11 +53,9 @@ class FlashCardSite extends React.Component{
         <Header as="h1" textAlign='center'>
           Flash Cards</Header>
           <Divider/>
-          <FlashCards 
-          cards={this.state.flashCards} 
-          revealAnswer={this.toggleAnswer}
-          remove = {this.removeCard}
-          />
+          <Card.Group itemsPerRow={4} >
+          {this.renderCards()}
+        </Card.Group>
           <CreateCard add = {this.addCard}/>
       </Container>
     )
